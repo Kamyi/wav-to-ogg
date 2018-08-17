@@ -54,9 +54,9 @@ do
 	#core convertation
 	nice ffmpeg "$LOGLEVEL" "$LEVEL" -i "$wavfile" "$oggfile" && rm -frv "$wavfile"
 	# TODO: File check condtions optimization
-	if [ -f "$oggfile" ] then
+	#if [ -f "$oggfile" ] then
 		mysql -u "$db_user" -p "$db_pass" -s -N -D "$database" <<< "UPDATE cdr SET recordingfile='$oggfilenopath' WHERE recordingfile = '$wavfilenopath'"
-	fi
+	#fi
 
 done
 
